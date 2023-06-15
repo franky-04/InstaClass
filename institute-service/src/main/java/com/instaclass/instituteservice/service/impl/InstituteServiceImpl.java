@@ -1,10 +1,14 @@
 package com.instaclass.instituteservice.service.impl;
+import com.instaclass.instituteservice.dto.GetInstituteAndSubjectsDTO;
+import com.instaclass.instituteservice.dto.GetInstituteDto;
 import com.instaclass.instituteservice.entity.Institute;
+import com.instaclass.instituteservice.mappers.InstituteMapper;
 import com.instaclass.instituteservice.repository.InstituteRepository;
 import com.instaclass.instituteservice.service.InstituteService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.instaclass.instituteservice.mappers.InstituteMapper.mapInstituteToGetInstituteDTO;
 
 
 @Service
@@ -19,9 +23,14 @@ public class InstituteServiceImpl implements InstituteService {
 
     }
 
-    @Override
-    public Institute getInstituteById(Long id) {
-        return instituteRepository.findInstituteById(id);
+    public GetInstituteDto getInstituteById(Long id) {
+        Institute institute = instituteRepository.findInstituteById(id);
+        return mapInstituteToGetInstituteDTO(institute);
+    }
+
+   @Override
+    public GetInstituteAndSubjectsDTO getInstituteByIdAndSubjects(Long id) {
+        return InstituteMapper.mapInstituteToGetInstituteAndSubjectsDTO(instituteRepository.findInstituteById(id));
     }
 
 
