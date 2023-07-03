@@ -1,6 +1,5 @@
 package com.instaclass.instituteservice.repository;
 
-import com.instaclass.instituteservice.dto.GetInstituteAndSubjectsDTO;
 import com.instaclass.instituteservice.entity.Institute;
 import org.springframework.data.jpa.repository.JpaRepository;
 

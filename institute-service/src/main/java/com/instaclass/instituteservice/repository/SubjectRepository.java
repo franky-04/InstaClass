@@ -1,6 +1,5 @@
 package com.instaclass.instituteservice.repository;
 
-import com.instaclass.instituteservice.entity.Institute;
 import com.instaclass.instituteservice.entity.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
 

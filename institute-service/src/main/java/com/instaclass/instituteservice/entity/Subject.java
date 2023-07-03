@@ -8,8 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -37,4 +36,11 @@ public class Subject {
     private Institute institute;
 
 
+    public Subject(String name, String description,Institute institute) {
+        this.name = name;
+        this.description = description;
+        this.institute = institute;
+        this.createdAt = LocalDateTime.now();
+        this.lastUpdate = null;
+    }
 }

@@ -7,12 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="teacher-service" />
+        <module name="institute-service" />
         <module name="class-service" />
         <module name="student-service" />
-        <module name="teacher-service" />
         <module name="account-service" />
         <module name="admin-service" />
-        <module name="institute-service" />
+        <module name="service-registry" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -20,6 +21,7 @@
       <module name="admin-service" target="17" />
       <module name="class-service" target="17" />
       <module name="institute-service" target="17" />
+      <module name="service-registry" target="17" />
       <module name="student-service" target="17" />
       <module name="teacher-service" target="17" />
     </bytecodeTargetLevel>
@@ -30,6 +32,7 @@
       <module name="admin-service" options="-parameters" />
       <module name="class-service" options="-parameters" />
       <module name="institute-service" options="-parameters" />
+      <module name="service-registry" options="-parameters" />
       <module name="student-service" options="-parameters" />
       <module name="teacher-service" options="-parameters" />
     </option>

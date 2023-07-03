@@ -1,5 +1,6 @@
 package com.instaclass.instituteservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -10,8 +11,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -31,13 +31,19 @@ public class Institute {
     @CreationTimestamp
     private LocalDateTime createdAt;
     @Column(name = "last_update")
-    @UpdateTimestamp
+    @LastModifiedDate
     private LocalDateTime lastUpdate;
 
+    @EqualsAndHashCode.Exclude @ToString.Exclude
     @OneToMany(mappedBy = "institute", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private Set<Subject> subjects;
 
-
-
+    public Institute(String name, String address, String description) {
+        this.name = name;
+        this.address = address;
+        this.description = description;
+        this.createdAt = LocalDateTime.now();
+        this.lastUpdate = null;
+    }
 }

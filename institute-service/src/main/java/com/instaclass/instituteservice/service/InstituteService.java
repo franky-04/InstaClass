@@ -1,17 +1,17 @@
 package com.instaclass.instituteservice.service;
 
 
-import com.instaclass.instituteservice.dto.GetInstituteAndSubjectsDTO;
-import com.instaclass.instituteservice.dto.GetInstituteDto;
-import com.instaclass.instituteservice.entity.Institute;
+import com.instaclass.instituteservice.DTO.instituteDTO.GetInstituteAndSubjectsDTO;
+import com.instaclass.instituteservice.DTO.instituteDTO.GetInstituteDTO;
+import com.instaclass.instituteservice.DTO.instituteDTO.PostInstituteDTO;
 
 
 public interface InstituteService {
-    Institute saveInstitute(Institute institute);
+    GetInstituteDTO saveInstitute(PostInstituteDTO postInstituteDTO);
 
     GetInstituteAndSubjectsDTO getInstituteByIdAndSubjects(Long id);
 
-    GetInstituteDto getInstituteById(Long id);
+    GetInstituteDTO getInstituteById(Long id);
 
 
 }

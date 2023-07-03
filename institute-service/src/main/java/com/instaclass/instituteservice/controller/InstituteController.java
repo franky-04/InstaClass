@@ -1,8 +1,8 @@
 package com.instaclass.instituteservice.controller;
 
-import com.instaclass.instituteservice.dto.GetInstituteAndSubjectsDTO;
-import com.instaclass.instituteservice.dto.GetInstituteDto;
-import com.instaclass.instituteservice.entity.Institute;
+import com.instaclass.instituteservice.DTO.instituteDTO.GetInstituteAndSubjectsDTO;
+import com.instaclass.instituteservice.DTO.instituteDTO.GetInstituteDTO;
+import com.instaclass.instituteservice.DTO.instituteDTO.PostInstituteDTO;
 import com.instaclass.instituteservice.service.InstituteService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.*;
 public class InstituteController {
     private InstituteService instituteService;
     @PostMapping
-    public ResponseEntity<Institute> saveInstitute(@RequestBody Institute institute){
-        Institute savedInstitute = instituteService.saveInstitute(institute);
-        return new ResponseEntity<>(savedInstitute, HttpStatus.CREATED);
+    public ResponseEntity<GetInstituteDTO> saveInstitute(@RequestBody PostInstituteDTO postInstituteDTO){
+        GetInstituteDTO instituteDto = instituteService.saveInstitute(postInstituteDTO);
+        return new ResponseEntity<>(instituteDto, HttpStatus.CREATED);
     }
 
     //ritorna solo institute
     @GetMapping("{institute-id}")
-    public ResponseEntity<GetInstituteDto> getInstitute(@PathVariable("institute-id") Long id){
-        GetInstituteDto instituteDto = instituteService.getInstituteById(id);
+    public ResponseEntity<GetInstituteDTO> getInstitute(@PathVariable("institute-id") Long id){
+        GetInstituteDTO instituteDto = instituteService.getInstituteById(id);
         return new ResponseEntity<>(instituteDto, HttpStatus.OK);
     }
 
